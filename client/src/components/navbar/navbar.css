@@ -1,0 +1,23 @@
+.nav-menu {
+    display: flex;               
+    justify-content: left;     
+    align-items: left;         
+    background-color: inherit;       
+    padding: 25px 100px;           /* Add some padding around the nav menu */             /* Fixed position to keep it at the top of the page */
+    top: 0;                       /* Align it to the top */
+    width: 100%;                  /* Full width of the viewport */
+    z-index: 1000;   
+    gap: 100px;        /* Ensure it stays on top of other elements */
+    height:10vh;
+  }
+
+.nav-menu div {
+    display: flex;                /* Make each div a flex container */
+    align-items: center;
+    color: white;                 /* White text color */
+}
+
+.nav-menu button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
