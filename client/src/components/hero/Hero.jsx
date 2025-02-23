@@ -1,18 +1,25 @@
 import './hero.css'
 import { useState, useEffect } from 'react'
 import {GetSpeech} from '../../speech_convert/speech_text';
+import EyeTracker from '../../eye_tracker/EyeTracker';
 
 const Hero = () => {
+
+    const [isEyeTrackingActive, setIsEyeTrackingActive] = useState(true);
+
     const handleMicClick = () => {
         console.log("Mic button clicked automatically!");  
         GetSpeech(); 
     };
-    const [toggled, setToggled] = useState(false);
-    const [toggled1, setToggled1] = useState(false);
+    const [toggled, setToggled] = useState(true);
+    const [toggled1, setToggled1] = useState(true);
 
     useEffect(() => {
         if (toggled) {
           handleMicClick();
+        }
+        if (toggled1) {
+          setIsEyeTrackingActive(true);
         }
       }, [toggled]);
 
@@ -30,7 +37,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='hero'>
+    <div className='hero' style={{cursor: isEyeTrackingActive ? "none" : "auto"}}>
         <div className='background'>
           <div className='SideLeftTop'>
             <img src='/BigLeaveLight.png' className='bigLeaveLight1'/>
@@ -90,6 +97,7 @@ const Hero = () => {
                     />
             </div>
         </div>
+        {isEyeTrackingActive && <EyeTracker />}
     </div>
   )
 }
