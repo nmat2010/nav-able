@@ -1,10 +1,22 @@
 import './hero.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import {GetSpeech} from '../../speech_convert/speech_text';
 
 
 const Hero = () => {
+    const handleMicClick = () => {
+        console.log("Mic button clicked automatically!");  
+        GetSpeech(); 
+    };
     const [toggled, setToggled] = useState(false);
     const [toggled1, setToggled1] = useState(false);
+
+    useEffect(() => {
+        if (toggled) {
+          handleMicClick();
+        }
+      }, [toggled]);
+
   return (
     <div className='hero'>
         <div className='introduction'>
@@ -13,7 +25,10 @@ const Hero = () => {
         </div>
         <div className='switchButton'>
             <div className="switch-container">
-            <button className={`toggle-btn ${toggled ? 'toggled' : ''}`} onClick={() => setToggled(!toggled)}>
+            <button 
+
+            className={`toggle-btn ${toggled ? 'toggled' : ''}`} onClick={() => setToggled(!toggled)}
+            >
                 <div className="thumb"></div>
             </button>
             <p>Voice</p>
@@ -26,12 +41,11 @@ const Hero = () => {
             </div>
         </div>
         <div className='searchBox'>
-            <div className="mt-10 p-6 bg-gradient-to-r from-purple-700 to-indigo-800 rounded-lg shadow-lg">
-                <p className="text-center text-white text-lg mb-4">Try out some searching!</p>
+            <p>Try out some searching!</p>
+            <div className="search-container">
                     <input 
                         type="text" 
                         placeholder="Type something here..." 
-                        className="w-full p-3 rounded-lg text-black"
                     />
             </div>
         </div>
