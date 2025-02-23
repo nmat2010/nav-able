@@ -87,11 +87,11 @@ const EyeTracker = () => {
 
     // d3.select("#webgazerGazeDot").style("display", "block").attr("cx", mouseX).attr("cy", mouseY);
 
-    if (mouseY < 50) {
-      window.scrollBy(0, -10); // Scroll up
-    } else if (mouseY > window.innerHeight - 50) {
-      window.scrollBy(0, 10); // Scroll down
-    }
+    // if (mouseY < 50) {
+    //   window.scrollBy(0, -10); // Scroll up
+    // } else if (mouseY > window.innerHeight - 50) {
+    //   window.scrollBy(0, 10); // Scroll down
+    // }
 
     const element = document.elementFromPoint(mouseX, mouseY);
     if (element && (element.tagName === "BUTTON" || element.tagName === "A")) {

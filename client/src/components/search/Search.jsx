@@ -1,15 +1,14 @@
 import { useState } from 'react';
 
-const Search = () => {
-  const [query, setQuery] = useState('');
+const Search = ({ query, setQuery }) => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   // Replace with your Google API key
-  const apiKey = 'AIzaSyBRZCOj6EC-eNX7dkjhab6OKoiQwek9wFw'; 
+  const apiKey = 'AIzaSyAiy441qDhqcWAa_Epin3WgF4IMHgYBqZc'; 
   // Replace with your Custom Search Engine ID
-  const searchEngineId = '446e846390a9f4c5b'; 
+  const searchEngineId = '759de39c7d4874c1e'; 
 
   const handleSearch = async () => {
     if (!query) return;

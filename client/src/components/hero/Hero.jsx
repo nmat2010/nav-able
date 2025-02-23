@@ -7,7 +7,7 @@ import Search from '../search/Search';
 const Hero = () => {
 
     const [isEyeTrackingActive, setIsEyeTrackingActive] = useState(true);
-
+    const [searchQuery, setSearchQuery] = useState('');
   const [showSpeech, setShowSpeech] = useState(false);
   const [toggled, setToggled] = useState(true);
   const [toggled1, setToggled1] = useState(true);
@@ -106,11 +106,11 @@ const Hero = () => {
       <div className='searchBox'>
         <p>Try out some searching!</p>
         <div className="search-container">
-          <Search/>
+        <Search query={searchQuery} setQuery={setSearchQuery} />
         </div>
       </div>
       {/* Conditionally render GetSpeech */}
-      {showSpeech && <GetSpeech />}
+      {showSpeech && <GetSpeech updateQuery={setSearchQuery} />}
       {isEyeTrackingActive && <EyeTracker />}
     </div>
   );

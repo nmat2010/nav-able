@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-export const GetSpeech = () => {
+export const GetSpeech = ({updateQuery}) => {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognitionRef = useRef(null);
 
@@ -72,37 +72,57 @@ export const GetSpeech = () => {
       isTypingModeRef.current = true;
       console.log("Typing mode activated.");
       return;
-    } else if (command.includes("stop typing")) {
+    } else if (command.includes("finish")) {
       isTypingModeRef.current = false;
       console.log("Typing mode stopped.");
+      
+      // Update the search query by grabbing the current value from the focused input
+      const activeElement = document.activeElement;
+      if (
+        activeElement &&
+        (activeElement.tagName === "INPUT" ||
+          activeElement.tagName === "TEXTAREA" ||
+          activeElement.isContentEditable)
+      ) {
+        const value = activeElement.value || activeElement.innerText;
+        updateQuery(value);  // Update the parent's search query
+        console.log(`Search query updated to: "${value}"`);
+      }
       return;
     } else if (isTypingModeRef.current) {
       insertTextAtCursor(command);
       return;
     }
-
-    // Check for known commands
     if (command.includes("scroll down")) {
       startSmoothScroll(1);
     } else if (command.includes("scroll up")) {
       startSmoothScroll(-1);
-    } else if (command.includes("stop scrolling")) {
+    } else if (command.includes("stop")) {
       stopSmoothScroll();
     } else if (command.includes("going")) {
       clickInput();
-    }
-    // Add more as needed
+    }else if (command.includes("go to top")) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    console.log("Scrolling to the top");
+  } else if (command.includes("go to bottom")) {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    console.log("Scrolling to the bottom");
+  }
+    // Add more commands as needed
   }
 
   // Example: scrolling
   function startSmoothScroll(direction) {
     if (isScrollingRef.current) return;
     isScrollingRef.current = true;
-    scrollIntervalRef.current = setInterval(() => {
+    
+    const step = () => {
+      if (!isScrollingRef.current) return;
       window.scrollBy({ top: direction * 10, behavior: "smooth" });
-      requestAnimationFrame(30);
-    }); // slower interval
-    requestAnimationFrame(30);
+      requestAnimationFrame(step);
+    };
+    
+    requestAnimationFrame(step);
   }
 
   function stopSmoothScroll() {
