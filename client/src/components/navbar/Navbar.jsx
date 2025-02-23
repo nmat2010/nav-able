@@ -1,5 +1,7 @@
-import './navbar.css'
-import { useState } from 'react'
+import React, { useState } from 'react';
+import './navbar.css';
+import  {GetSpeech} from '../../speech_convert/speech_text';
+import { useHover } from '../../speech_convert/hover_auto_clicking';
 
 const Navbar = () => {
 
@@ -43,6 +45,6 @@ const Navbar = () => {
             )}
         </>
     );
-  };
+};
 
-export default Navbar
+export default Navbar;

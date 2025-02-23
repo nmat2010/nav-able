@@ -1,22 +1,30 @@
-import './hero.css'
-import { useState, useEffect } from 'react'
-import {GetSpeech} from '../../speech_convert/speech_text';
+import { useState, useEffect } from 'react';
+import { GetSpeech } from '../../speech_convert/speech_text';
+import './hero.css';
+import EyeTracker from '../../eye_tracker/EyeTracker';
+import Search from '../search/Search';
 
 const Hero = () => {
-    const handleMicClick = () => {
-        console.log("Mic button clicked automatically!");  
-        GetSpeech(); 
-    };
-    const [toggled, setToggled] = useState(false);
-    const [toggled1, setToggled1] = useState(false);
 
-    useEffect(() => {
-        if (toggled) {
-          handleMicClick();
-        }
-      }, [toggled]);
+    const [isEyeTrackingActive, setIsEyeTrackingActive] = useState(true);
 
+  const [showSpeech, setShowSpeech] = useState(false);
+  const [toggled, setToggled] = useState(true);
+  const [toggled1, setToggled1] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    if (toggled) {
+      console.log("Mic button toggled on!");
+      setShowSpeech(true);
+    } else {
+      setShowSpeech(false);
+    }
+        if (toggled1) {
+          setIsEyeTrackingActive(true);
+        }
+  }, [toggled]);
+
   const threshold = 1500;
   useEffect(() => {
     const handleScroll = () => {
@@ -24,16 +32,13 @@ const Hero = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const translateX = scrollPosition > threshold ? scrollPosition -10 : 0;
 
   return (
-    <div className='hero'>
+    <div className='hero' style={{cursor: isEyeTrackingActive ? "none" : "auto"}}>
         <div className='background'>
           <div className='SideLeftTop'>
             <img src='/BigLeaveLight.png' className='bigLeaveLight1'/>
@@ -77,34 +82,38 @@ const Hero = () => {
               those with impaired voices. By bridging these accessibility gaps, we aim to create a more inclusive digital 
               experience where everyone can communicate and navigate with ease.</p>
         </div>
+        
         <div className='switchButton'>
-            <div className="switch-container">
-            <button 
-
-            className={`toggle-btn ${toggled ? 'toggled' : ''}`} onClick={() => setToggled(!toggled)}
-            >
-                <div className="thumb"></div>
-            </button>
-            <p>Voice</p>
-            </div>
-            <div className="switch-container">
-            <button className={`toggle-btn ${toggled1 ? 'toggled' : ''}`} onClick={() => setToggled1(!toggled1)}>
-                <div className="thumb"></div>
-            </button>
-            <p>Vision</p>
-            </div>
+        <div className="switch-container">
+          <button 
+            className={`toggle-btn ${toggled ? 'toggled' : ''}`} 
+            onClick={() => setToggled(!toggled)}
+          >
+            <div className="thumb"></div>
+          </button>
+          <p>Voice</p>
         </div>
-        <div className='searchBox'>
-            <p>Try out some searching!</p>
-            <div className="search-container">
-                    <input 
-                        type="text" 
-                        placeholder="Type something here..." 
-                    />
-            </div>
+        <div className="switch-container">
+          <button 
+            className={`toggle-btn ${toggled1 ? 'toggled' : ''}`} 
+            onClick={() => setToggled1(!toggled1)}
+          >
+            <div className="thumb"></div>
+          </button>
+          <p>Vision</p>
         </div>
+      </div>
+      <div className='searchBox'>
+        <p>Try out some searching!</p>
+        <div className="search-container">
+          <Search/>
+        </div>
+      </div>
+      {/* Conditionally render GetSpeech */}
+      {showSpeech && <GetSpeech />}
+      {isEyeTrackingActive && <EyeTracker />}
     </div>
-  )
-}
+  );
+};
 
 export default Hero
