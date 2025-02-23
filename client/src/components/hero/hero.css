@@ -4,6 +4,11 @@
     position: relative;
 }
 
+.b {
+    font-weight: 900;
+    text-shadow: 3px 3px 0px rgb(255, 255, 255);
+}
+
 .introduction{
     flex-direction: column;
     justify-content: center;
@@ -12,14 +17,15 @@
     color: white;
     font-size: 1.5rem;
     font-weight: 100;
+    margin-left: 190px;
+    margin-right: 150px;
 }
 .introduction h1{
     font-size: 5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    margin-left: 100px;
     color: #FFF0BA;
-
+    margin-left: 100px;
     transform: translateX(0%) 
 }
 
@@ -87,6 +93,7 @@
     position: absolute;
     width: 350px;
     top: 50px;
+    left: 0;
     transform: translateX(-150px);
     z-index: 1;
     transition: transform 0.5s ease-out;
@@ -137,6 +144,32 @@
     transition: transform 0.5s ease-out;
 }
 
+.mascot {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 300px;
+    margin-right: 100px;
+    animation-name: moveUpAndDown;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+    z-index: 4;
+    }
+@keyframes moveUpAndDown {
+    0%, 100% {
+    transform: translateY(0);
+    }
+    50% {
+    transform: translateY(-30px);
+    }
+}
+
 /* Bottom */
 .Bottom-container {
     position: absolute;
@@ -151,7 +184,6 @@
     position: relative;
     bottom: 0;
     width: 100%;
-    /* height: 100px; */
 }
 
 .bigCircleBottom {
@@ -160,7 +192,7 @@
     right: 0;
     top: -300px;
     transform: translateX(200px);
-    z-index: 1;
+    z-index: 5;
     transition: transform 0.5s ease-out;
 }
 
@@ -170,7 +202,7 @@
     top: -60px;
     right: 0;
     transform: translateX(-70px);
-    z-index: 1;
+    z-index: 5;
     transition: transform 0.5s ease-out;
 }
 
@@ -180,7 +212,7 @@
     top: -50px;
     right: 0;
     transform: translateX(120px);
-    z-index: 1;
+    z-index: 5;
     transition: transform 0.5s ease-out;
 }
 
@@ -190,7 +222,7 @@
     right: 0;
     top: -400px;
     transform: translateX(200px);
-    z-index: 1;
+    z-index: 5;
     transition: transform 0.5s ease-out;
 }
 
@@ -200,12 +232,86 @@
     left: 0;
     top: -150px;
     transform: translateX(-80px);
-    z-index: 1;
+    z-index: 5;
     transition: transform 0.5s ease-out;
-    color: #FFF0BA;
     text-align: left;
     margin-left:6rem;
 }
+
+@keyframes wave1anim{
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-60px);
+    }
+}
+
+.wave1 {
+    position: absolute;
+    left: -20px;
+    top: -230px;
+    z-index: 4;
+    animation-name: wave1anim;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+
+}
+
+.wave2 {
+    position: absolute;
+    top: -350px;
+    left: -40px;
+    z-index: 3;
+    animation-name: wave1anim;
+    animation-duration: 2.1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+}
+
+.wave3 {
+    position: absolute;
+    top: -480px;
+    z-index: 2;
+    animation-name: wave1anim;
+    animation-duration: 2.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+}
+
+.wave4 {
+    position: absolute;
+    top: -600px;
+    z-index: 1;
+    margin-left: 150px;
+    animation-name: wave1anim;
+    animation-duration: 1.9s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+}
+
+/*Tuantran's*/
 .introduction p{
     margin-bottom: 6rem;
     margin-left: 6rem;
