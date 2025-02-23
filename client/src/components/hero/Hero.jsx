@@ -38,8 +38,7 @@ const Hero = () => {
   }, []);
 
   return (
-    // <div className='hero' style={{cursor: isEyeTrackingActive ? "none" : "auto"}}>
-    <div className='hero'>
+    <div className='hero' style={{cursor: isEyeTrackingActive ? "none" : "auto"}}>
         <div className='background'>
           <div className='SideLeftTop'>
             <img src='/BigLeaveLight.png' className='bigLeaveLight1'/>
