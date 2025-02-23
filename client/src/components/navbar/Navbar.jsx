@@ -4,38 +4,45 @@ import  {GetSpeech} from '../../speech_convert/speech_text';
 import { useHover } from '../../speech_convert/hover_auto_clicking';
 
 const Navbar = () => {
-    const [showSpeech, setShowSpeech] = useState(false);
 
-    const handleMicClick = () => {
-        console.log("Mic button clicked automatically!");
-        setShowSpeech(true);  // Render the GetSpeech component
+    const [showInspiration, setInspiration] = useState(false); // Track popup visibility
+    const [showTeam, setTeam] = useState(false);
+
+    const toggleInspiration = () => {
+      setInspiration(!showInspiration);
     };
-
-    const [hoverRef, isHovering] = useHover(handleMicClick, 2000);
+    const toggleTeam = () => {
+        setTeam(!showTeam);
+    }
 
     return (
         <>
             <nav className="nav-menu">
                 <div>
-                    <button>Inspiration</button>  
-                </div>
-                <div>
-                    <button>Home</button>
-                </div>
-                <div>
-                    <button 
-                        ref={hoverRef}
-                        style={{
-                            backgroundColor: isHovering ? "lightblue" : "",
-                            border: isHovering ? "2px solid black" : "1px solid gray"
-                        }}
+                    <button
+                    onClick={toggleInspiration}
                     >
-                        Mic
-                    </button>
+                    Inspiration
+                    </button>  
+                </div>
+                <div>
+                    <button
+                    onClick={toggleTeam}
+                    >Team</button>
                 </div>
             </nav>
-            {/* Conditionally render GetSpeech when showSpeech is true */}
-            {showSpeech && <GetSpeech />}
+            {showInspiration && (
+                <div className="popup-screen">
+                <p>Here is some inspiration for you! 🌟</p>
+                <button onClick={toggleInspiration} className="close-btn">Close</button>
+                </div>
+            )}
+            {showTeam && (
+                <div className="popup-screen">
+                <p>Here is some our team for you! 🌟</p>
+                <button onClick={toggleTeam} className="close-btn">Close</button>
+                </div>
+            )}
         </>
     );
 };
