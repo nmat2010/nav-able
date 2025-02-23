@@ -274,9 +274,13 @@
 
 .searchBox{
     flex-direction: column;
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
     height:50%;
+    /* new code */
+    position: relative;
+    z-index: 100;
+    height: auto;
 }
 
 .searchBox p{
@@ -303,10 +307,16 @@
 
 
 .search-container input{
-    width: 100%;            /* Equivalent to w-full */
+    /* width: 100%;            Equivalent to w-full */
+    width: 40vw;
   padding: 0.75rem;      /* Equivalent to p-3 (12px) */
   border-radius: 0.5rem; /* Equivalent to rounded-lg */
   color: white;
   background: #1F1C4680;
   z-index: 30000;
+  margin: 30px;
 }
+
+.search-container input:focus {
+    border: 2px solid #FFD700; /* Add a visible border for focus state */
+  }

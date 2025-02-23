@@ -2,6 +2,7 @@ import './hero.css'
 import { useState, useEffect } from 'react'
 import {GetSpeech} from '../../speech_convert/speech_text';
 import EyeTracker from '../../eye_tracker/EyeTracker';
+import Search from '../search/Search';
 
 const Hero = () => {
 
@@ -37,7 +38,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='hero' style={{cursor: isEyeTrackingActive ? "none" : "auto"}}>
+    // <div className='hero' style={{cursor: isEyeTrackingActive ? "none" : "auto"}}>
+    <div className='hero'>
         <div className='background'>
           <div className='SideLeftTop'>
             <img src='/BigLeaveLight.png' className='bigLeaveLight1'/>
@@ -91,10 +93,7 @@ const Hero = () => {
         <div className='searchBox'>
             <p>Try out some searching!</p>
             <div className="search-container">
-                    <input 
-                        type="text" 
-                        placeholder="Type something here..." 
-                    />
+                    <Search/>
             </div>
         </div>
         {isEyeTrackingActive && <EyeTracker />}
