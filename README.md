@@ -1,4 +1,4 @@
-# SKINGUARD: AI-POWERED DERMATOLOGIST
+# SEESAY
 Visit our [Devpost](https://devpost.com)
 
 ## Project Overview
