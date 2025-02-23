@@ -308,4 +308,5 @@
   border-radius: 0.5rem; /* Equivalent to rounded-lg */
   color: white;
   background: #1F1C4680;
+  z-index: 30000;
 }
