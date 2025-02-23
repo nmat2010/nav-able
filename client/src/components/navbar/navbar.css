@@ -3,7 +3,7 @@
     justify-content: left;     
     align-items: left;         
     background-color: inherit;       
-    padding: 25px 100px;           /* Add some padding around the nav menu */             /* Fixed position to keep it at the top of the page */
+    padding: 25px 300px;           /* Add some padding around the nav menu */             /* Fixed position to keep it at the top of the page */
     top: 0;                       /* Align it to the top */
     width: 100%;                  /* Full width of the viewport */
     z-index: 1000;   

@@ -17,6 +17,7 @@ const Hero = () => {
       }, [toggled]);
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const threshold = 1500;
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -28,6 +29,8 @@ const Hero = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const translateX = scrollPosition > threshold ? scrollPosition -10 : 0;
 
   return (
     <div className='hero'>
@@ -46,6 +49,7 @@ const Hero = () => {
             <img src='/BigLeaveDark.png' className='bigLeaveDark'/>
             <img src='/SenseSmall.png' className='senseSmall2'/>
             <img src='/StarUpperRight.png' className='starRightSide'/>
+            <img src='/OrbMascot.png' className='mascot'/>
           </div>
 
           <div className='Bottom-container'>
@@ -55,14 +59,23 @@ const Hero = () => {
               <img src='/SenseBig.png' className='senseBigBottom'/>
               <img src='/SenseSmall.png' className='senseSmallBtoom'/>
               <img src='/StarLeftDown.png' className='starBottom'/>
+
+              <img src='/wave1.png' className='wave1'/>
+              <img src='/wave2.png' className='wave2'/>
+              <img src='/wave3.png' className='wave3'/>
+              <img src='/wave4.png' className='wave4'/>
             </div>
           </div>
           
         </div>
 
         <div className='introduction'>
-            <h1 className='titleName' style={{transform: `translateX(${scrollPosition * 2}px)`}}>Nav-able</h1>
-            <p>This is just a description of the project. It basically tells you what to expect from this project. So far, there is nothing here and I’m typing all these just because we haven’t got a description. This is just a placeholder text and I’m sick of Lorem Ipsum giving me trauma from those 3 years of back pain and strained eyes.</p>
+            <h1 className='titleName' style={{transform: `translateX(${scrollPosition * 2}px)`}}>SeeSay</h1>
+            <p>Our platform leverages <b>AI-powered gaze detection and voice recognition</b> to empower individuals with disabilities, 
+              making technology more accessible and intuitive. With <b>gaze-based navigation</b>, users with limited mobility 
+              can interact seamlessly with digital interfaces, while <b>NLP-enhanced voice chat</b> helps interpret speech from 
+              those with impaired voices. By bridging these accessibility gaps, we aim to create a more inclusive digital 
+              experience where everyone can communicate and navigate with ease.</p>
         </div>
         <div className='switchButton'>
             <div className="switch-container">
