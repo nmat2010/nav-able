@@ -29,6 +29,7 @@ const Hero = () => {
             <div className="mt-10 p-6 bg-gradient-to-r from-purple-700 to-indigo-800 rounded-lg shadow-lg">
                 <p className="text-center text-white text-lg mb-4">Try out some searching!</p>
                     <input 
+                        id="searchInput"
                         type="text" 
                         placeholder="Type something here..." 
                         className="w-full p-3 rounded-lg text-black"
