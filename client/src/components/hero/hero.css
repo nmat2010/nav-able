@@ -1,0 +1,311 @@
+.hero{
+    height: 335vh;
+    flex-direction: column;
+    position: relative;
+}
+
+.introduction{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 20%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+.introduction h1{
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-left: 100px;
+    color: #FFF0BA;
+
+    transform: translateX(0%) 
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/*Left side background*/
+.SideLeftTop {
+    position: relative;
+    width: 100%;
+    height: 1000px
+}
+
+.senseSmall1 {
+    position: absolute;
+    width: 300px;
+    top: 200px;
+    transform: translateX(-170px);
+    z-index: 4;
+}
+
+.bigCircle1 {
+    position: absolute;
+    width: 500px;
+    top: 300px;
+    transform: translateX(-200px);
+    z-index: 2;
+    transition: transform 0.5s ease-out;
+}
+
+.smallCircle1 {
+    position: absolute;
+    width: 400px;
+    top: 500px;
+    transform: translateX(100px);
+    z-index: 3;
+    transform: translate 0.5s ease-out;
+}
+
+.senseBig2 {
+    position: absolute;
+    width: 300px;
+    top: 600px;
+    transform: translateX(-100px);
+    z-index: 4;
+    transition: transform 0.5s ease-out;
+}
+
+.starLeftSide {
+    position: absolute;
+    width: 360px;
+    top: -40px;
+    transform: translateX(15px);
+    z-index: 5;
+    transition: transform 0.5s ease-out;
+}
+
+.bigLeaveLight1 {
+    position: absolute;
+    width: 350px;
+    top: 50px;
+    transform: translateX(-150px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+.smallLeaveDark1 {
+    position: absolute;
+    width: 300px;
+    top: 500px;
+    transform: translateX(380px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+/* Side right background */
+.SideRightTop {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: right;
+}
+
+.bigLeaveDark {
+    position: absolute;
+    width: 450px;
+    top: 370px;
+    transform: translateX(150px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+.senseSmall2 {
+    position: absolute;
+    width: 250px;
+    top: 300px;
+    transform: translateX(130px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+.starRightSide {
+    position: absolute;
+    width: 500px;
+    top: -70px;
+    transform: translateX(-10px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+/* Bottom */
+.Bottom-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.Bottom {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    /* height: 100px; */
+}
+
+.bigCircleBottom {
+    position: absolute;
+    width: 500px;
+    right: 0;
+    top: -300px;
+    transform: translateX(200px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+.smallCircleBottom {
+    position: absolute;
+    width: 370px;
+    top: -60px;
+    right: 0;
+    transform: translateX(-70px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+.senseBigBottom {
+    position: absolute;
+    width: 320px;
+    top: -50px;
+    right: 0;
+    transform: translateX(120px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+.senseSmallBtoom {
+    position: absolute;
+    width: 280px;
+    right: 0;
+    top: -400px;
+    transform: translateX(200px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+}
+
+.starBottom {
+    position: absolute;
+    width: 400px;
+    left: 0;
+    top: -150px;
+    transform: translateX(-80px);
+    z-index: 1;
+    transition: transform 0.5s ease-out;
+    color: #FFF0BA;
+    text-align: left;
+    margin-left:6rem;
+}
+.introduction p{
+    margin-bottom: 6rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    text-align: left;
+}
+
+.switchButton{
+    flex-direction: column;
+    height: 30%;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    margin-left:40%;
+    gap: 1rem;
+}
+
+.toggle-btn{
+    background-color: #b7b9ba;
+    border: 1px solid #b96df6;
+    border-radius: 99px;
+    width: 100px;
+    height: 50px;
+    transition: background-color 0.1s ease, border-color 0.2s ease;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0,0,0,748);
+    position: relative;
+}
+
+.toggle-btn .thumb{
+    height:40px;
+    width: 40px;
+    background-color: #9F87A2;
+    border-radius: 99px;
+    transform: translateX(0);
+    transition: left 0.15s ease;
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.toggle-btn.toggled{
+    background: #0B0D3F;
+}
+
+.toggle-btn:hover {
+    border-color: #6f6f6f;
+}
+
+.toggle-btn.toggled .thumb{
+    left: calc(100px - 45px);
+}
+
+.switch-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.switch-container p{
+    color: #FFF0BA;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.searchBox{
+    flex-direction: column;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    height:50%;
+}
+
+.searchBox p{
+    text-align: center;    /* Equivalent to text-center */
+    color: #FFF0BA;          /* Equivalent to text-white */
+    font-size: 1.125rem;   /* Equivalent to text-lg (18px) */
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.search-container{
+    background: linear-gradient(180deg, #CFB4D3 0%, #A37DA7 72%, #5F3A63 100%);
+    display: flex;
+    height: 50%;
+    border-radius: 0.5rem;
+    padding: 1.5rem; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); 
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-direction: column;
+}
+
+
+.search-container input{
+    width: 100%;            /* Equivalent to w-full */
+  padding: 0.75rem;      /* Equivalent to p-3 (12px) */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  color: white;
+  background: #1F1C4680;
+}

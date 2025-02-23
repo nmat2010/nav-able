@@ -1,16 +1,15 @@
-import { useState } from "react"
-// import EyeTracking from "./components/EyeTracking";
-import './App.css'
-import Home from "./components/Home";
-
-function App() {
-  const [clickCount, setClickCount] = useState(0);
-
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import './App.css';
+import Hero from './components/hero/Hero';
+const App = () => {
   return (
-    <>
-      <Home/>
-    </>
+    <div className='main'>
+      <Navbar />
+      <Hero />
+      <Footer />
+    </div>
   )
-}
+};
 
 export default App
