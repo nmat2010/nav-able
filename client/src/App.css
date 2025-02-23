@@ -1,8 +1,7 @@
-
-
 .main {
   background: linear-gradient(180deg, #5E4B5E 0%, #1F1C46 39%, #0B0D3F 69%);
-  height: 100vh;
+  /* height: 2980px; */
+  height: 350vh;
   overflow: hidden;
   flex-direction: column;
 }
