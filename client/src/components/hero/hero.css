@@ -57,18 +57,28 @@
     position: absolute;
     width: 500px;
     top: 300px;
+    left: -200px;
     transform: translateX(-200px);
     z-index: 2;
     transition: transform 0.5s ease-out;
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
 }
 
 .smallCircle1 {
     position: absolute;
     width: 400px;
     top: 500px;
+    left: 50px;
     transform: translateX(100px);
     z-index: 3;
     transform: translate 0.5s ease-out;
+    animation-name: spin;
+    animation-duration: 10s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
 }
 
 .senseBig2 {
@@ -103,6 +113,7 @@
     position: absolute;
     width: 300px;
     top: 500px;
+    left: -70px;
     transform: translateX(380px);
     z-index: 1;
     transition: transform 0.5s ease-out;
@@ -192,7 +203,7 @@
     right: 0;
     top: -300px;
     transform: translateX(200px);
-    z-index: 5;
+    z-index: 8;
     transition: transform 0.5s ease-out;
 }
 
@@ -202,7 +213,7 @@
     top: -60px;
     right: 0;
     transform: translateX(-70px);
-    z-index: 5;
+    z-index: 8;
     transition: transform 0.5s ease-out;
 }
 
@@ -212,7 +223,7 @@
     top: -50px;
     right: 0;
     transform: translateX(120px);
-    z-index: 5;
+    z-index: 8;
     transition: transform 0.5s ease-out;
 }
 
@@ -222,7 +233,7 @@
     right: 0;
     top: -400px;
     transform: translateX(200px);
-    z-index: 5;
+    z-index: 8;
     transition: transform 0.5s ease-out;
 }
 
@@ -232,7 +243,7 @@
     left: 0;
     top: -150px;
     transform: translateX(-80px);
-    z-index: 5;
+    z-index: 8;
     transition: transform 0.5s ease-out;
     text-align: left;
     margin-left:6rem;
@@ -251,7 +262,7 @@
     position: absolute;
     left: -20px;
     top: -230px;
-    z-index: 4;
+    z-index: 5;
     animation-name: wave1anim;
     animation-duration: 2.5s;
     animation-timing-function: linear;
@@ -268,6 +279,23 @@
     position: absolute;
     top: -350px;
     left: -40px;
+    z-index: 4;
+    animation-name: wave1anim;
+    animation-duration: 2.1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+}
+
+.ship {
+    position: absolute;
+    width: 700px;
+    top: -600px;
+    left: 660px;
     z-index: 3;
     animation-name: wave1anim;
     animation-duration: 2.1s;
@@ -321,7 +349,7 @@
 
 .switchButton{
     flex-direction: column;
-    height: 30%;
+    height: 15%;
     justify-content: center;
     align-items: flex-start;
     display: flex;
@@ -382,7 +410,6 @@
     flex-direction: column;
     margin-left: 10rem;
     margin-right: 10rem;
-    height:50%;
     /* new code */
     position: relative;
     z-index: 100;
@@ -400,7 +427,7 @@
 .search-container{
     background: linear-gradient(180deg, #CFB4D3 0%, #A37DA7 72%, #5F3A63 100%);
     display: flex;
-    height: 50%;
+    height: 90%;
     border-radius: 0.5rem;
     padding: 1.5rem; 
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); 
@@ -425,4 +452,22 @@
 
 .search-container input:focus {
     border: 2px solid #FFD700; /* Add a visible border for focus state */
+  }
+
+
+
+  .spinning {
+    animation-name: spin;
+    animation-duration: 7s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+    transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg)
+    }
   }

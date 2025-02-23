@@ -6,8 +6,8 @@ import Search from '../search/Search';
 
 const Hero = () => {
 
-    const [isEyeTrackingActive, setIsEyeTrackingActive] = useState(true);
-    const [searchQuery, setSearchQuery] = useState('');
+  const [isEyeTrackingActive, setIsEyeTrackingActive] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
   const [showSpeech, setShowSpeech] = useState(false);
   const [toggled, setToggled] = useState(true);
   const [toggled1, setToggled1] = useState(true);
@@ -67,6 +67,7 @@ const Hero = () => {
 
               <img src='/wave1.png' className='wave1'/>
               <img src='/wave2.png' className='wave2'/>
+              <img src='/ship.PNG' className='ship'/>
               <img src='/wave3.png' className='wave3'/>
               <img src='/wave4.png' className='wave4'/>
             </div>
