@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 import { GetSpeech } from '../../speech_convert/speech_text';
 import './hero.css';
+import EyeTracker from '../../eye_tracker/EyeTracker';
+import Search from '../search/Search';
 
 const Hero = () => {
+
+    const [isEyeTrackingActive, setIsEyeTrackingActive] = useState(true);
+
   const [showSpeech, setShowSpeech] = useState(false);
-  const [toggled, setToggled] = useState(false);
-  const [toggled1, setToggled1] = useState(false);
+  const [toggled, setToggled] = useState(true);
+  const [toggled1, setToggled1] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -15,6 +20,9 @@ const Hero = () => {
     } else {
       setShowSpeech(false);
     }
+        if (toggled1) {
+          setIsEyeTrackingActive(true);
+        }
   }, [toggled]);
 
   useEffect(() => {
@@ -27,7 +35,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='hero'>
+    <div className='hero' style={{cursor: isEyeTrackingActive ? "none" : "auto"}}>
         <div className='background'>
           <div className='SideLeftTop'>
             <img src='/BigLeaveLight.png' className='bigLeaveLight1'/>
@@ -85,15 +93,12 @@ const Hero = () => {
       <div className='searchBox'>
         <p>Try out some searching!</p>
         <div className="search-container">
-          <input 
-            id="searchInput"
-            type="text" 
-            placeholder="Type something here..." 
-          />
+          <Search/>
         </div>
       </div>
       {/* Conditionally render GetSpeech */}
       {showSpeech && <GetSpeech />}
+      {isEyeTrackingActive && <EyeTracker />}
     </div>
   );
 };

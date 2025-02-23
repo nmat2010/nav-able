@@ -100,7 +100,9 @@ export const GetSpeech = () => {
     isScrollingRef.current = true;
     scrollIntervalRef.current = setInterval(() => {
       window.scrollBy({ top: direction * 10, behavior: "smooth" });
-    }, 100); // slower interval
+      requestAnimationFrame(30);
+    }); // slower interval
+    requestAnimationFrame(30);
   }
 
   function stopSmoothScroll() {
