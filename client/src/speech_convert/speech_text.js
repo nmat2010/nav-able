@@ -104,9 +104,9 @@ export const GetSpeech = ({updateQuery}) => {
     }else if (command.includes("go to top")) {
     window.scrollTo({ top: 0, behavior: "smooth" });
     console.log("Scrolling to the top");
-  } else if (command.includes("go to bottom")) {
+  } else if ((command.includes("end")) || (command.includes("the n"))){
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    console.log("Scrolling to the bottom");
+    console.log("Scrolling to the bot");
   }
     // Add more commands as needed
   }
@@ -118,7 +118,7 @@ export const GetSpeech = ({updateQuery}) => {
     
     const step = () => {
       if (!isScrollingRef.current) return;
-      window.scrollBy({ top: direction * 10, behavior: "smooth" });
+      window.scrollBy({ top: direction * 5, behavior: "smooth" });
       requestAnimationFrame(step);
     };
     
