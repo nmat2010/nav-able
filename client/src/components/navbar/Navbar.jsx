@@ -1,7 +1,8 @@
 import './navbar.css'
 import {GetSpeech} from '../../speech_convert/speech_text';
 import {useHover} from '../../speech_convert/hover_auto_clicking';
-
+import {AutoTyping} from '../../speech_convert/typing_auto';
+import { useRef } from 'react';
 
 const Navbar = () => {
     const handleMicClick = () => {
@@ -9,6 +10,11 @@ const Navbar = () => {
         GetSpeech(); 
     };
     const [hoverRef, isHovering] = useHover(handleMicClick, 2000);
+
+
+    const handleTypingClick = () => {
+        AutoTyping();
+    }
     return (
         <nav className="nav-menu">
             <div>
@@ -29,16 +35,8 @@ const Navbar = () => {
                     Mic
                 </button>
             </div>
-            {/* <div
-                ref={hoverRef}
-                style={{
-                    backgroundColor: isHovering ? 'lightblue' : 'white',
-                    padding: '20px',
-                    border: '1px solid black',
-                }}
-                >
-                {isHovering ? 'Hovering!' : 'Not hovering.'}
-            </div> */}
+            <div className="words"  contentEditable></div>
+                <button onClick={handleTypingClick}>Typing</button>
         </nav>
     );
   };
