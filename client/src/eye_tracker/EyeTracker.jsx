@@ -55,37 +55,37 @@ const EyeTracker = () => {
   };
 
   // Update the lines and gaze point based on eye positions
-  const updateEyeTracking = (leftEyeX, leftEyeY, rightEyeX, rightEyeY, gazeX, gazeY) => {
-    // d3.select("#eyeline1").attr("x1", leftEyeX).attr("y1", leftEyeY).attr("x2", gazeX).attr("y2", gazeY);
-    // d3.select("#eyeline2").attr("x1", rightEyeX).attr("y1", rightEyeY).attr("x2", gazeX).attr("y2", gazeY);
-    d3.select("#webgazerGazeDot").style("display", "block").attr("cx", gazeX).attr("cy", gazeY);
-  };
+  // const updateEyeTracking = (leftEyeX, leftEyeY, rightEyeX, rightEyeY, gazeX, gazeY) => {
+  //   // d3.select("#eyeline1").attr("x1", leftEyeX).attr("y1", leftEyeY).attr("x2", gazeX).attr("y2", gazeY);
+  //   // d3.select("#eyeline2").attr("x1", rightEyeX).attr("y1", rightEyeY).attr("x2", gazeX).attr("y2", gazeY);
+  //   d3.select("#webgazerGazeDot").style("display", "block").attr("cx", gazeX).attr("cy", gazeY);
+  // };
 
   // Listener for WebGazer gaze data
-  const collisionEyeListener = async (data) => {
-    if (!data) return;
+  // const collisionEyeListener = async (data) => {
+  //   if (!data) return;
 
-    const fmPositions = await window.webgazer.getTracker().getPositions() || [];
-    if (!fmPositions.length) return;
+  //   const fmPositions = await window.webgazer.getTracker().getPositions() || [];
+  //   if (!fmPositions.length) return;
 
-    const whr = window.webgazer.getVideoPreviewToCameraResolutionRatio();
-    const leftEyeX = fmPositions[145] ? fmPositions[145][0] * whr[0] : 0;
-    const leftEyeY = fmPositions[145] ? fmPositions[145][1] * whr[1] : 0;
-    const rightEyeX = fmPositions[374] ? fmPositions[374][0] * whr[0] : 0;
-    const rightEyeY = fmPositions[374] ? fmPositions[374][1] * whr[1] : 0;
+  //   const whr = window.webgazer.getVideoPreviewToCameraResolutionRatio();
+  //   const leftEyeX = fmPositions[145] ? fmPositions[145][0] * whr[0] : 0;
+  //   const leftEyeY = fmPositions[145] ? fmPositions[145][1] * whr[1] : 0;
+  //   const rightEyeX = fmPositions[374] ? fmPositions[374][0] * whr[0] : 0;
+  //   const rightEyeY = fmPositions[374] ? fmPositions[374][1] * whr[1] : 0;
 
-    const gazeX = data.x;
-    const gazeY = data.y;
+  //   const gazeX = data.x;
+  //   const gazeY = data.y;
 
-    updateEyeTracking(leftEyeX, leftEyeY, rightEyeX, rightEyeY, gazeX, gazeY);
-  };
+  //   updateEyeTracking(leftEyeX, leftEyeY, rightEyeX, rightEyeY, gazeX, gazeY);
+  // };
 
   // Handle cursor movement to move the gaze dot
   const handleCursorMovement = (event) => {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
-    d3.select("#webgazerGazeDot").style("display", "block").attr("cx", mouseX).attr("cy", mouseY);
+    // d3.select("#webgazerGazeDot").style("display", "block").attr("cx", mouseX).attr("cy", mouseY);
 
     if (mouseY < 50) {
       window.scrollBy(0, -10); // Scroll up
@@ -111,17 +111,20 @@ const EyeTracker = () => {
       window.webgazer
         .showVideoPreview(true)
         .showPredictionPoints(false)
-        .applyKalmanFilter(true)
-        .setGazeListener(collisionEyeListener);
+        .applyKalmanFilter(true);
+        // .setGazeListener(collisionEyeListener);
+
+        window.webgazer.clearGazeListener();
 
         // Resize the video preview (example: 30% of the screen width and height)
         const videoPreview = document.querySelector('.webgazer-video-preview'); // or use another selector if needed
         if (videoPreview) {
-        videoPreview.style.width = '10%';
-        videoPreview.style.height = '10%';
+        videoPreview.style.width = '5%';
+        videoPreview.style.height = '5%';
         videoPreview.style.bottom = '10px';  // Position it if you want it to be at the top-left corner
         videoPreview.style.left = '10px';
-        videoPreview.style.zIndex="20000";
+        videoPreview.style.zIndex="9999999999";
+        videoPreview.style.position = 'absolute';
         }
 
       console.log("WebGazer initialized");
@@ -146,7 +149,6 @@ const EyeTracker = () => {
 
   return (
     <div>
-      Eye Tracking Component Active
       <div ref={svgRef} />
     </div>
   );
