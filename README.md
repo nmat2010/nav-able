@@ -1,6 +1,6 @@
 # SEESAY
 ### 🏆 HopperHacks'25 Best AI/ML Immersion Hack Winner 🏆
-Visit our [Devpost](https://devpost.com)
+Visit our [Devpost](https://devpost.com/software/seesay-1r8svc)
 
 ## Project Overview
 
